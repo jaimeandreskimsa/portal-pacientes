@@ -113,7 +113,7 @@ function OTPStep({
       {/* Mobile logo */}
       <div className="lg:hidden mb-8">
         <div className="inline-flex items-center px-5 py-2.5 rounded-2xl" style={{ background: "#0d7749" }}>
-          <img src="/logo-aclin.png" alt="ACLIN Laboratorio Clínico" className="h-10 w-auto" />
+          <img src="/logo-aclin.png" alt="ACLIN Laboratorio Clínico" className="w-[220px] sm:w-[260px] max-w-full h-auto" />
         </div>
       </div>
 
@@ -337,7 +337,7 @@ export default function LoginPage() {
           <img
             src="/logo-aclin.png"
             alt="ACLIN Laboratorio Clínico"
-            className="h-16 w-auto"
+            className="w-[300px] max-w-full h-auto"
           />
         </motion.div>
 
@@ -412,7 +412,7 @@ export default function LoginPage() {
           {/* Mobile logo */}
           <div className="lg:hidden mb-8">
             <div className="inline-flex items-center px-5 py-2.5 rounded-2xl" style={{ background: "#0d7749" }}>
-              <img src="/logo-aclin.png" alt="ACLIN Laboratorio Clínico" className="h-10 w-auto" />
+              <img src="/logo-aclin.png" alt="ACLIN Laboratorio Clínico" className="w-[220px] sm:w-[260px] max-w-full h-auto" />
             </div>
           </div>
 
@@ -504,10 +504,16 @@ export default function LoginPage() {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="mb-2 p-3 rounded-lg text-xs text-gray-600 overflow-hidden"
+                    className="mb-2 p-3 rounded-lg text-xs text-gray-600 overflow-hidden whitespace-pre-line"
                     style={{ background: "#f0faf0", borderLeft: "3px solid #0d7749" }}
                   >
-                    El número de folio está en la boleta o comprobante de atención entregado en la sucursal.
+                    El número de folio
+                    se encuentra en el
+                    comprobante de
+                    atención entregado
+                    en la sucursal, al
+                    momento de ser
+                    atendido.
                   </motion.div>
                 )}
               </AnimatePresence>

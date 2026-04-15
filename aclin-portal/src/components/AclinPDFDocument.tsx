@@ -173,7 +173,7 @@ export function AclinPDFDocument({ results }: Props) {
           <View style={styles.headerRight}>
             <Text style={styles.headerLabel}>Fecha de emisión</Text>
             <Text style={styles.headerValue}>{new Date().toLocaleDateString("es-CL")}</Text>
-            <Text style={[styles.headerLabel, { marginTop: 4 }]}>N° Orden</Text>
+            <Text style={[styles.headerLabel, { marginTop: 4 }]}>N° Folio</Text>
             <Text style={styles.headerValue}>{atencion.numeroOrden}</Text>
           </View>
         </View>
@@ -215,7 +215,7 @@ export function AclinPDFDocument({ results }: Props) {
               <Text style={styles.gridValue}>{atencion.medico}</Text>
             </View>
             <View style={styles.gridItem}>
-              <Text style={styles.gridLabel}>Toma de muestras</Text>
+              <Text style={styles.gridLabel}>Procedencia de muestra</Text>
               <Text style={styles.gridValue}>{atencion.tomaMuestras}</Text>
             </View>
           </View>

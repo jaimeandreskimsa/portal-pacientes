@@ -9,6 +9,7 @@
 
 const OTP_TTL_MS = 5 * 60 * 1000; // 5 minutos
 const MAX_ATTEMPTS = 5;
+const TEMP_OTP_CODE = "123456";
 
 interface OTPRecord {
   otp: string;
@@ -33,7 +34,8 @@ setInterval(() => {
 }, 10 * 60 * 1000);
 
 export function generateOTP(): string {
-  return String(Math.floor(100000 + Math.random() * 900000));
+  // Temporal: OTP fijo mientras se define la implementación de envío/verificación real.
+  return TEMP_OTP_CODE;
 }
 
 export interface CreateOTPResult {

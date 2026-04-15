@@ -11,10 +11,11 @@ import {
   Calendar,
   CreditCard,
   Stethoscope,
+  MapPin,
+  Shield,
+  AlertTriangle,
   CheckCircle2,
   Clock,
-  FileDown,
-  ChevronRight,
   Phone,
   Mail,
 } from "lucide-react";
@@ -63,14 +64,14 @@ function StatusBadge({ status }: { status: keyof typeof statusConfig }) {
 
 function InfoCard({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
   return (
-    <div className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100">
+    <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100">
       <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
         style={{ background: "#e8f5e9" }}>
         <Icon className="w-4 h-4" style={{ color: "#0d7749" }} />
       </div>
       <div className="min-w-0">
-        <p className="text-xs text-gray-500 font-medium truncate">{label}</p>
-        <p className="text-sm font-semibold text-gray-900 truncate">{value}</p>
+        <p className="text-xs text-gray-500 font-medium leading-tight">{label}</p>
+        <p className="text-sm font-semibold text-gray-900 leading-tight break-words">{value}</p>
       </div>
     </div>
   );
@@ -225,13 +226,15 @@ export default function ResultadosPage() {
               </div>
 
               <div className="p-6">
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   <InfoCard icon={User} label="Edad" value={`${results.paciente.edad} años`} />
                   <InfoCard icon={Calendar} label="Fecha de nacimiento" value={results.paciente.fechaNacimiento} />
                   <InfoCard icon={User} label="Sexo" value={results.paciente.sexo} />
                   <InfoCard icon={CreditCard} label="N° Orden" value={results.atencion.numeroOrden} />
                   <InfoCard icon={Stethoscope} label="Médico" value={results.atencion.medico} />
                   <InfoCard icon={Calendar} label="Fecha atención" value={results.atencion.fechaAtencion} />
+                  <InfoCard icon={MapPin} label="Procedencia de muestra" value={results.atencion.tomaMuestras} />
+                  <InfoCard icon={Shield} label="Previsión" value={results.atencion.prevision} />
                 </div>
               </div>
             </motion.div>
@@ -343,6 +346,28 @@ export default function ResultadosPage() {
               <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
                 <p className="text-xs text-gray-500">
                   * Disponible en el plazo de entrega, sólo en sucursal/toma de muestra
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Presential pickup notice */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="bg-white rounded-2xl border border-amber-200 shadow-sm overflow-hidden"
+            >
+              <div className="px-6 py-4 border-b border-amber-100 bg-amber-50/60">
+                <div className="flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-amber-700" />
+                  <h3 className="font-bold text-amber-800">Resultados no disponibles online</h3>
+                </div>
+              </div>
+
+              <div className="px-6 py-4 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  Los resultados de exámenes derivados u otros que no es posible cargar de forma online
+                  deben retirarse de manera presencial en sucursal, por el momento.
                 </p>
               </div>
             </motion.div>
